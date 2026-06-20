@@ -31,22 +31,30 @@ body{
 
 .widget{
   position:relative;
-  width: calc(320px * var(--scale));
-  height: calc(90px * var(--scale));
+  width:320px;
+  height:90px;
   background:var(--dark);
   overflow:hidden;
-  border-left: calc(4px * var(--scale)) solid var(--blue);
+  border-left:4px solid var(--blue);
 }
 
 .corner{
-  width: calc(50px * var(--scale));
-  height: calc(50px * var(--scale));
+  position:absolute;
+  top:0;
+  left:0;
+  width:50px;
+  height:50px;
+  background:var(--light);
+  clip-path:polygon(0 0,100% 0,0 100%);
 }
 
 .slot{
-  top: calc(4px * var(--scale));
-  left: calc(10px * var(--scale));
-  font-size: calc(28px * var(--scale));
+  position:absolute;
+  top:4px;
+  left:10px;
+  color:#15245f;
+  font-size:28px;
+  font-weight:900;
 }
 
 .blue-band{
@@ -61,22 +69,39 @@ body{
 }
 
 .content{
-  padding-left: calc(65px * var(--scale));
-  gap: calc(16px * var(--scale));
+  position:relative;
+  z-index:2;
+  height:100%;
+  display:flex;
+  align-items:center;
+  padding-left:65px;
+  gap:16px;
 }
 
 .day{
-  font-size: calc(52px * var(--scale));
+  font-size:52px;
+  color:var(--light);
+  line-height:1;
+  letter-spacing:2px;
 }
 
 .label{
-  font-size: calc(18px * var(--scale));
+  color:var(--white);
+  font-size:18px;
+  line-height:1.1;
 }
 
 .moon{
-  margin-right: calc(20px * var(--scale));
-  width: calc(42px * var(--scale));
-  height: calc(42px * var(--scale));
+  margin-left:auto;
+  margin-right:20px;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 70% 50%,
+      black 52%,
+      transparent 53%),
+    #7db2ff;
 }
 </style>
 </head>
