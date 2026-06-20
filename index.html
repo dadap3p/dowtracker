@@ -1,1 +1,143 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>P3R Weekday Widget</title>
+
+<style>
+:root{
+  --blue:#1657e8;
+  --dark:#1b2268;
+  --light:#7fb4ff;
+  --white:#ffffff;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  background:transparent;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  font-family:Arial Black,sans-serif;
+}
+
+.widget{
+  position:relative;
+  width:320px;
+  height:90px;
+  background:var(--dark);
+  overflow:hidden;
+  border-left:4px solid var(--blue);
+}
+
+.corner{
+  position:absolute;
+  top:0;
+  left:0;
+  width:50px;
+  height:50px;
+  background:var(--light);
+  clip-path:polygon(0 0,100% 0,0 100%);
+}
+
+.slot{
+  position:absolute;
+  top:4px;
+  left:10px;
+  color:#15245f;
+  font-size:28px;
+  font-weight:900;
+}
+
+.blue-band{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    135deg,
+    var(--blue) 0%,
+    var(--blue) 45%,
+    transparent 45%
+  );
+}
+
+.content{
+  position:relative;
+  z-index:2;
+  height:100%;
+  display:flex;
+  align-items:center;
+  padding-left:65px;
+  gap:16px;
+}
+
+.day{
+  font-size:52px;
+  color:var(--light);
+  line-height:1;
+  letter-spacing:2px;
+}
+
+.label{
+  color:var(--white);
+  font-size:18px;
+  line-height:1.1;
+}
+
+.moon{
+  margin-left:auto;
+  margin-right:20px;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 70% 50%,
+      black 52%,
+      transparent 53%),
+    #7db2ff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="widget">
+  <div class="corner"></div>
+  <div class="slot">1</div>
+  <div class="blue-band"></div>
+
+  <div class="content">
+    <div id="day" class="day">MON</div>
+
+    <div class="label">
+      Current<br>Day
+    </div>
+
+    <div class="moon"></div>
+  </div>
+</div>
+
+<script>
+const days = [
+  "SUN",
+  "MON",
+  "TUE",
+  "WED",
+  "THU",
+  "FRI",
+  "SAT"
+];
+
+document.getElementById("day").textContent =
+  days[new Date().getDay()];
+</script>
+
+</body>
+</html>
